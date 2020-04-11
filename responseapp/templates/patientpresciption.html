@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Prescription details</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <!-- Google fonts - Popppins for copy-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,800">
+    <!-- orion icons-->
+    <link rel="stylesheet" href="{% static 'css/orionicons.css' %}">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="{% static 'css/style.default.css' %}" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="{% static '/img/white.png' %}">
+    <style>
+      .print {
+        display:none
+      }
+       @media print {
+        .print {display:block}
+        .btn-print {display:none;}
+      }
+      @page {
+          margin-top: 1.5cm;
+          margin-bottom: 2cm;
+          margin-left: 2cm;
+          margin-right: 2cm;
+      }
+      /* 
+      body {visibility:hidden;}
+      .print {visibility:visible;} */
+      </style>
+  </head>
+  <body>
+    <!-- navbar-->
+
+    <img align="left" id="print" src="{% static 'img/logofnalupdate-05.png' %}" alt="logo" style="width: 165px; display: none;" >
+   
+    {% comment %} <img id="print" src="{% static 'img/logofnalupdate-05.png' %}" alt="logo" style="width: 165px; display: block; margin-left:850px;" > {% endcomment %}
+    <div id="nameofpatient" style="display: none;" ><h3   align="right" class="h6 text-uppercase mb-0"  >Name :</h3><p  align="right" >barathraj</p></div?
+     <div id="emailidofpatient" style="display: none;" ><h3   align="right" class="h6 text-uppercase mb-0"  >email address:</h3> <p align="right" >barathraj122@gmail.com</p></div>    
+   
+    <header class="header">
+      <nav class="navbar navbar-expand-lg px-4 py-2 bg-white shadow"><a href="#" class="sidebar-toggler text-gray-500 mr-4 mr-lg-5 lead "><i class="fas fa-align-left "></i></a><a style="color: #4C84FF; " class="navbar-brand font-weight-bold text-uppercase text-base ">Prescriptions</a s>
+        <ul class="ml-auto d-flex align-items-center list-unstyled mb-0">
+          <!-- <li class="nav-item">
+            <form id="searchForm" class="ml-auto d-none d-lg-block">
+              <div class="form-group position-relative mb-0">
+                <button type="submit" style="top: -3px; left: 0;" class="position-absolute bg-white border-0 p-0"><i class="o-search-magnify-1 text-gray text-lg"></i></button>
+                <input type="search" placeholder="Search ..." class="form-control form-control-sm border-0 no-shadow pl-4">
+              </div>
+            </form>
+          </li>
+          <li class="nav-item dropdown mr-3"><a id="notifications" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle text-gray-400 px-1"><i class="fa fa-bell"></i><span class="notification-icon"></span></a>
+            <div aria-labelledby="notifications" class="dropdown-menu"><a href="#" class="dropdown-item">
+                <div class="d-flex align-items-center">
+                  <div class="icon icon-sm bg-violet text-white"><i class="fab fa-twitter"></i></div>
+                  <div class="text ml-2">
+                    <p class="mb-0">You have 2 followers</p>
+                  </div>
+                </div></a><a href="#" class="dropdown-item"> 
+                <div class="d-flex align-items-center">
+                  <div class="icon icon-sm bg-green text-white"><i class="fas fa-envelope"></i></div>
+                  <div class="text ml-2">
+                    <p class="mb-0">You have 6 new messages</p>
+                  </div>
+                </div></a><a href="#" class="dropdown-item">
+                <div class="d-flex align-items-center">
+                  <div class="icon icon-sm bg-blue text-white"><i class="fas fa-upload"></i></div>
+                  <div class="text ml-2">
+                    <p class="mb-0">Server rebooted</p>
+                  </div>
+                </div></a><a href="#" class="dropdown-item">
+                <div class="d-flex align-items-center">
+                  <div class="icon icon-sm bg-violet text-white"><i class="fab fa-twitter"></i></div>
+                  <div class="text ml-2">
+                    <p class="mb-0">You have 2 followers</p>
+                  </div>
+                </div></a>
+              <div class="dropdown-divider"></div><a href="#" class="dropdown-item text-center"><small class="font-weight-bold headings-font-family text-uppercase">View all notifications</small></a>
+            </div>
+          </li> -->
+          <li class="nav-item dropdown ml-auto"><a id="userInfo" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><img src="{% static '/img/patient.png' %}" alt="Jason Doe" style="max-width: 2.5rem;" class="img-fluid rounded-circle shadow"></a>
+            <div aria-labelledby="userInfo" class="dropdown-menu"><a href="#" class="dropdown-item"><strong class="d-block text-uppercase headings-font-family">{{username}}</strong><small>{{type}}</small></a>
+              <!-- <div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a><a href="#" class="dropdown-item">Activity log       </a> -->
+              <!-- <div class="dropdown-divider"></div><a href="login.html" class="dropdown-item">Logout</a> -->
+              <div class="dropdown-divider"></div><a href="/" class="dropdown-item">Logout</a>
+
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="d-flex align-items-stretch">
+
+      <div id="sidebar" class="sidebar py-3">
+        <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">MAIN</div>
+        <ul class="sidebar-menu list-unstyled">
+          <li class="sidebar-list-item"><a href="/patienthomepage/" class="sidebar-link text-muted "><i class="o-home-1 mr-3 text-gray"></i><span>Home</span></a></li>
+          <li class="sidebar-list-item"><a href="/consenteddoctor/" class="sidebar-link text-muted"><i class="o-sales-up-1 mr-3 text-gray"></i><span>Consent Doctors</span></a></li>
+          <li class="sidebar-list-item"><a href="/patientpresciption/" class="sidebar-link text-muted active"><i class="o-table-content-1 mr-3 text-gray"></i><span>Prescriptions</span></a></li>
+          <li class="sidebar-list-item"><a href="/generateqrcode/" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-gray"></i><span>Qr code</span></a></li>
+
+          {% comment %} <li class="sidebar-list-item"><a href="/statisticalreport/" class="sidebar-link text-muted"><i class="o-survey-1 mr-3 text-gray"></i><span>Statistical Report</span></a></li> {% endcomment %}
+        </div>
+          
+        <div class="page-holder w-100 d-flex flex-wrap">
+          <div class="container-fluid px-xl-5">
+
+
+
+
+
+
+           <div class="page-holder w-100 d-flex flex-wrap">
+        <div class="container-fluid px-xl-5">
+          <section class="py-5">
+            <div class="row">
+              <div class="col-xl-3 col-lg-6 mb-4 mb-xl-0">
+                <div class="bg-white shadow roundy p-4 h-100 d-flex align-items-center justify-content-between">
+                  <div class="flex-grow-1 d-flex align-items-center">
+                    <div class="dot mr-3 bg-violet"></div>
+                    <div class="text">
+                      <h6 class="mb-0">{{username}}</h6><span class="text-gray">Name</span>
+                    </div>
+                  </div>
+                  <div class="icon text-white bg-violet"><i class="fas fa-user"></i></div>
+                  {% comment %} <div class="icon text-white bg-violet"></div> {% endcomment %}
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-6 mb-4 mb-xl-0">
+                <div class="bg-white shadow roundy p-4 h-100 d-flex align-items-center justify-content-between">
+                  <div class="flex-grow-1 d-flex align-items-center">
+                    <div class="dot mr-3 bg-green"></div>
+                    <div class="text">
+                      <h6 class="mb-0">{{age}} </h6><span class="text-gray">Age</span>
+                    </div>
+                  </div>
+                  <div class="icon text-white bg-green"><i class="far fa-clipboard"></i></div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-6 mb-4 mb-xl-0">
+                <div class="bg-white shadow roundy p-4 h-100 d-flex align-items-center justify-content-between">
+                  <div class="flex-grow-1 d-flex align-items-center">
+                    <div class="dot mr-3 bg-blue"></div>
+                    <div class="text">
+                      <h6 class="mb-0">{{DOB}} </h6><span class="text-gray">Date of Birth</span>
+                    </div>
+                  </div>
+                  <div class="icon text-white bg-blue"><i class="far fa-calendar-alt"></i></div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-6 mb-4 mb-xl-0">
+                <div class="bg-white shadow roundy p-4 h-100 d-flex align-items-center justify-content-between">
+                  <div class="flex-grow-1 d-flex align-items-center">
+                    <div class="dot mr-3 bg-red"></div>
+                    <div class="text">
+                      <h6 class="mb-0">{{bloodGrp}} </h6><span class="text-gray">Bloodgroup</span>
+                    </div>
+                  </div>
+                  <div class="icon text-white bg-red"><i class="fas fa-receipt"></i></div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section>
+            <section class="py-5">
+              <div class="row">
+                <!-- Basic Form-->
+                {% for x in zipped %}
+                <div class="col-lg-6 mb-5">
+                  <div class="card">
+                    <div class="card-header">
+                      <h3 class="h6 text-uppercase mb-0">Record{{x.0}}</h3>
+                    </div>
+                    <div class="card-body">
+                      <!-- <p>Lorem ipsum dolor sit amet consectetur.</p> -->
+                      <div class="d-flex justify-content-center"><p><b>Blood test</b></p></div>
+                  <form class="form-horizontal">
+                  
+                    <!-- <form class="form-horizontal" style="width:480px;" action="/labprescription/" method="POST"> -->
+                     {% csrf_token %}
+                      <div class="form-group row">
+                        <label class="col-md-3   p-2 form-control-label">Haemoglobin</label>
+                        <div class="col-md-9">
+                          <input id="inputHorizontalSuccess" disabled name="haemo" type="text" value="{{x.1}}" class="form-control  form-control-success">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 p-2 form-control-label">Total WBC count</label>
+                        <div class="col-md-9">
+                          <input id="inputHorizontalWarning" disabled name="WBC" type="text" value="{{x.2}}cells/Cu.mm" class="form-control form-control-warning">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 p-2 form-control-label">Total RBC count</label>
+                        <div class="col-md-9">
+                          <input id="inputHorizontalWarning" disabled name="RBC" type="text" value="{{x.3}}cells/Cu.mm" class="form-control form-control-warning">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 p-2 form-control-label">Platelets count</label>
+                        <div class="col-md-9">
+                          <input id="inputHorizontalWarning" disabled  name="Platelets" type="text" value="{{x.4}}cells/Cu.mm" class="form-control form-control-warning">
+                        </div>
+                      </div>
+                       {% comment %} {% endifequal %} {% endcomment %}
+                      <hr></hr>
+                      <div class="d-flex justify-content-center"><p><b>Sugar test</b></p></div>
+                       <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">Before meal</label>
+                        <div class="col-md-9">
+                          <input id="inputHorizontalWarning"  disabled name="Beforemeal" type="text" value="{{x.5}}mg/dl" class="form-control form-control-warning">
+                        </div>
+                      </div>
+                       <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">After meal</label>
+                        <div class="col-md-9">
+                          <input id="inputHorizontalWarning"  disabled name="aftermeal" type="text" value="{{x.6}}mg/dl" class="form-control form-control-warning">
+                        </div>
+                      </div>
+                      <hr></hr>
+                      <div class="d-flex justify-content-center"><p><b>CMP test</b></p></div>
+                        <div class="form-group row">
+                        <label class="col-md-3 form-control-label">Glucose</label>
+                        <div class="col-md-9">
+                          <input id="inputHorizontalSuccess" disabled name="Glucose" type="text" value="{{x.7}}mg/dl" class="form-control form-control-success">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">Sodium</label>
+                        <div class="col-md-9">
+                          <input id="inputHorizontalWarning"  disabled name="Sodium" type="text" value="{{x.8}}mmol/dl" class="form-control form-control-warning">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">Potassium</label>
+                        <div class="col-md-9">
+                          <input id="inputHorizontalWarning" disabled name="Potassium" type="text" value="{{x.9}}mmol/dl" class="form-control form-control-warning">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">Chloride</label>
+                        <div class="col-md-9">
+                          <input id="inputHorizontalWarning" disabled name="Chloride" type="text" value="{{x.10}}mmol/dl" class="form-control form-control-warning">
+                        </div>
+                      </div>
+
+                      <div class="card-body">
+                    {% comment %} <p>Lorem ipsum dolor sit amet consectetur.</p> {% endcomment %}
+                    <form class="form-horizontal">
+                      {% csrf_token %}
+                      <div class="form-group row">
+                        <label class="col-md-3 p-1 form-control-label">Prescription</label>
+                        <div class="col-md-9">
+                          <!-- {% comment %} <input id="inputHorizontalSuccess" type="email" placeholder="Email Address" class="form-control form-control-success"> {% endcomment %} -->
+                        <textarea id="inputHorizontalSuccess" disabled name="Prescription" placeholder="{{x.11}}" rows="4" cols="50" class="form-control form-control-success"></textarea>
+                        </div>
+                      </div>
+                       <div class="form-group row">
+                        <label class="col-md-3 p-1 form-control-label">Suggestions</label>
+                        <div class="col-md-9">
+                          <!-- {% comment %} <input id="inputHorizontalSuccess" type="email" placeholder="Email Address" class="form-control form-control-success"> {% endcomment %} -->
+                        <textarea id="inputHorizontalSuccess" disabled name="Suggestions" placeholder="{{x.12}}" rows="4" cols="50" class="form-control form-control-success"></textarea>
+                        </div>
+                      </div>                              
+                    </form>
+                  </div>
+                      <div class="form-group row">       
+                        <div class="col-md-9 ml-auto">
+                          <!-- <input type="submit" value="Submit" class="btn btn-primary"> -->
+                          <input onclick="myFunction()"  type="button" value="print" class="btn btn-primary btn-print">
+                          {% comment %} <button type="submit" class="btn btn-secondary shadow px-3">Generate Qr code</button> {% endcomment %}
+
+
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>              
+                {% endfor %}
+              </section>
+            </div>
+
+                 <!-- <div class="col-lg-6 mb-5">
+                  <div class="card">
+                    <div class="card-header">
+                      <h3 class="h6 text-uppercase mb-0">Horizontal Form</h3>
+                    </div>
+                    <div class="card-body">
+                      <p>Lorem ipsum dolor sit amet consectetur.</p>
+                      <form class="form-horizontal">
+                        <div class="form-group row">
+                          <label class="col-md-3 form-control-label">Email</label>
+                          <div class="col-md-9">
+                            <input id="inputHorizontalSuccess" type="email" placeholder="Email Address" class="form-control form-control-success"><small class="form-text text-muted ml-3">Example help text that remains unchanged.</small>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label class="col-sm-3 form-control-label">Password</label>
+                          <div class="col-md-9">
+                            <input id="inputHorizontalWarning" type="password" placeholder="Pasword" class="form-control form-control-warning"><small class="form-text text-muted ml-3">Example help text that remains unchanged.</small>
+                          </div>
+                        </div>
+                        <div class="form-group row">       
+                          <div class="col-md-9 ml-auto">
+                            <input type="submit" value="Signin" class="btn btn-primary">
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                   </div> -->
+
+
+
+
+                   
+                <!-- Horizontal Form-->
+
+                <!-- <div class="col-lg-6 mb-5">
+                  <div class="card">
+                    <div class="card-header">
+                      <h3 class="h6 text-uppercase mb-0">Horizontal Form</h3>
+                    </div>
+                    <div class="card-body">
+                      <p>Lorem ipsum dolor sit amet consectetur.</p>
+                      <form class="form-horizontal">
+                        <div class="form-group row">
+                          <label class="col-md-3 form-control-label">Email</label>
+                          <div class="col-md-9">
+                            <input id="inputHorizontalSuccess" type="email" placeholder="Email Address" class="form-control form-control-success"><small class="form-text text-muted ml-3">Example help text that remains unchanged.</small>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label class="col-sm-3 form-control-label">Password</label>
+                          <div class="col-md-9">
+                            <input id="inputHorizontalWarning" type="password" placeholder="Pasword" class="form-control form-control-warning"><small class="form-text text-muted ml-3">Example help text that remains unchanged.</small>
+                          </div>
+                        </div>
+                        <div class="form-group row">       
+                          <div class="col-md-9 ml-auto">
+                            <input type="submit" value="Signin" class="btn btn-primary">
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                   </div> -->
+
+
+
+           
+
+          
+
+
+    <!-- JavaScript files-->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"><
+    <script src="{% static 'vendor/popper.js/umd/popper.min.js' %}"> </script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'vendor/jquery.cookie/jquery.cookie.js' %}"> </script>
+    <script src="{% static 'vendor/chart.js/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="{% static 'js/front.js' %}"></script>
+
+
+    <script>
+        function myFunction() {
+        document.getElementById("print").style.display = "block";
+        document.getElementById("nameofpatient").style.display = "block";
+        document.getElementById("nameofpatient").style.display = "block";
+        
+        window.print();
+        document.getElementById("print").style.display = "none";
+        document.getElementById("nameofpatient").style.display = "none";
+        document.getElementById("nameofpatient").style.display = "none";
+        }
+        </script>
+  </body>
+</html>

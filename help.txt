@@ -1,0 +1,18 @@
+{% block content %}
+
+
+    <table width="100%">
+        <tr>
+            <td width="33%">
+                <div><img src="{% qr_url_from_text "barathraj sbr" %}" alt="Hello World!"></div>
+            </td>
+            <td width="33%">
+               <div><img src="{% qr_url_from_text "Hello World!" size=8 version=10 image_format='png' %}" alt="Hello World!"></div>
+            </td>
+            <td width="33%">
+                <div><img src="{% qr_url_from_text "Hello World!" size=8 version=20 cache_enabled=False %}" alt="Hello World!"></div>
+            </td>
+        </tr>
+    </table>
+
+{% endblock %} 
