@@ -1,0 +1,31 @@
+pragma solidity ^0.5.0;
+pragma experimental ABIEncoderV2;
+
+contract Healthpassport {
+
+//   mapping (address => string[]) public documents;
+  
+  mapping (address => address[]) public doctorsPermissions;
+
+//   function addDocument(string memory documentHash) public returns (uint) {
+//     address from = msg.sender;
+//     return documents[from].push(documentHash) - 1;
+//   }
+
+//   function getDocuments(address user) public view returns (string[] memory) {
+//     return documents[user];
+//   }
+
+
+  function giveAccessToDoctor(address doctor) public {
+    doctorsPermissions[doctor].push(msg.sender);
+  }
+
+  function revokeAccessFromDoctor(address doctor, uint index) public {
+    require(doctorsPermissions[doctor][index] == msg.sender, 'You can only revoke access to your own documents.');
+    delete doctorsPermissions[doctor][index];
+  }
+  function getDoctorsPermissions(address doctor) public view returns (address[] memory) {
+    return doctorsPermissions[doctor];
+  }
+}
